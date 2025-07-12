@@ -1,4 +1,4 @@
-variable "tags" {
+variable "common_tags" {
   type = map(any)
   default = {
     "ManagedBy" = "terraform"

@@ -6,11 +6,10 @@ locals {
   region     = data.aws_region.this.region
 }
 
-
 resource "aws_s3_bucket" "terraform_state" {
   bucket        = "${local.account_id}-tf-state-${local.region}"
   force_destroy = true
-  tags          = var.tags
+  tags          = var.common_tags
 }
 
 resource "aws_s3_bucket_versioning" "terraform_state" {
@@ -49,5 +48,5 @@ resource "aws_dynamodb_table" "terraform_locks" {
     name = "LockID"
     type = "S"
   }
-  tags = var.tags
+  tags = var.common_tags
 }
