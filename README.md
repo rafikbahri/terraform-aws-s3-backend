@@ -32,7 +32,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources created by this module | `map(any)` | <pre>{<br/>  "ManagedBy": "terraform"<br/>}</pre> | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources created by this module | `map(any)` | <pre>{<br>  "ManagedBy": "terraform"<br>}</pre> | no |
 
 ## Outputs
 
