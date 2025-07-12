@@ -1,3 +1,4 @@
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -39,3 +40,4 @@ No modules.
 |------|-------------|
 | <a name="output_tf_lock_dynamodb_table_name"></a> [tf\_lock\_dynamodb\_table\_name](#output\_tf\_lock\_dynamodb\_table\_name) | DynamoDB table name for Terraform state locking |
 | <a name="output_tf_state_s3_bucket_name"></a> [tf\_state\_s3\_bucket\_name](#output\_tf\_state\_s3\_bucket\_name) | S3 bucket name for Terraform state |
+<!-- END_TF_DOCS -->
