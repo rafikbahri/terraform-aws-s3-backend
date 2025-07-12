@@ -94,6 +94,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+    
+    - name: debug
+      run: cat README.md
 
     - name: Generate docs
       uses: terraform-docs/gh-actions@v1.2.0
