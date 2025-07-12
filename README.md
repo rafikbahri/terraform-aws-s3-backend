@@ -32,12 +32,13 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources created by this module | `map(any)` | <pre>{<br>  "ManagedBy": "terraform"<br>}</pre> | no |
+| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | Tags to apply to all resources created by this module | `map(any)` | <pre>{<br>  "ManagedBy": "terraform"<br>}</pre> | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
+| <a name="output_tf_backend_config_string"></a> [tf\_backend\_config\_string](#output\_tf\_backend\_config\_string) | Terraform backend configuration as a formatted string |
 | <a name="output_tf_lock_dynamodb_table_name"></a> [tf\_lock\_dynamodb\_table\_name](#output\_tf\_lock\_dynamodb\_table\_name) | DynamoDB table name for Terraform state locking |
 | <a name="output_tf_state_s3_bucket_name"></a> [tf\_state\_s3\_bucket\_name](#output\_tf\_state\_s3\_bucket\_name) | S3 bucket name for Terraform state |
 <!-- END_TF_DOCS -->
