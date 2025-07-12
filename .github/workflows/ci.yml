@@ -94,6 +94,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
     
     - name: debug
       run: cat README.md
@@ -105,3 +107,4 @@ jobs:
         output-file: README.md
         output-method: inject
         git-push: true
+
