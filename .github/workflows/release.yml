@@ -23,38 +23,29 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release_branches: "main,master"
           tag_prefix: "${{ github.ref_name }}-v"
-  debug:
+
+  release:
     runs-on: ubuntu-latest
-    needs: tag
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+    needs:
+      - tag
     steps:
-      - name: Debug outputs
-        run: |
-          echo "New tag: ${{ steps.tag_version.outputs.new_tag }}"
-          echo "New version: ${{ steps.tag_version.outputs.new_version }}"
-          echo "Changelog: ${{ steps.tag_version.outputs.changelog }}"
+      - name: Checkout
+        uses: actions/checkout@v4
 
-#   release:
-#     runs-on: ubuntu-latest
-#     permissions:
-#       contents: write
-#       packages: write
-#       id-token: write
-#     needs:
-#       - tag
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-
-#       - name: Create Release
-#         uses: softprops/action-gh-release@v1
-#         with:
-#           tag_name: ${{ needs.tag.outputs.new_tag }}
-#           name: Release ${{ github.ref_name }} chart v${{ needs.tag.outputs.new_version }}
-#           body: ${{ needs.tag.outputs.changelog }}
-#           draft: false
-#           prerelease: false
-#           files: |
-#             ${{ env.PACKAGE }}
-#             CHANGELOG.md
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.tag.outputs.new_tag }}
+          name: Release ${{ github.ref_name }} module v${{ needs.tag.outputs.new_version }}
+          body: ${{ needs.tag.outputs.changelog }}
+          draft: false
+          prerelease: false
+          files: |
+            ${{ env.PACKAGE }}
+            CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
