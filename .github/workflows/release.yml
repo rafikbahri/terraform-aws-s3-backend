@@ -22,7 +22,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release_branches: "main,master"
-          tag_prefix: "${{ github.repo }}-v"
 
   release:
     runs-on: ubuntu-latest
@@ -40,7 +39,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ needs.tag.outputs.new_tag }}
-          name: Release v${{ needs.tag.outputs.new_version }}
+          name: Release ${{ github.ref_name }} chart v${{ needs.tag.outputs.new_version }}
           body: ${{ needs.tag.outputs.changelog }}
           draft: false
           prerelease: false
